@@ -1,35 +1,32 @@
 import { useEffect, useState } from "react"
 import { Container, Background } from "../Modal/styles"
-import api from "../../services/api"
+
+import {  getMovieVideos } from "../../services/getData"
 
 function Modal({ movieId, setShowModal }) {
 
-    const [movie, setMovie] = useState()
+    const [movie, setMovie] = useState([])
 
     useEffect(() => {
         async function getMovies() {
-            const { data: { results } } = await api.get(`/movie/${movieId}/videos`)
-           
-            
-            setMovie(results[0])
-            console.log(results[0])
+          setMovie(await getMovieVideos(movieId))
 
         }
 
-        getMovies
+        getMovies()
     }, [])
 
     return (
         <Background onClick={() => setShowModal(false)}>
-            {movie &&(
-            <Container>
-                <iframe
-                src={`https://www.youtube.com/embed/${movie.key}`}
-               title= 'Youtube Video Player'
-               height= '500px'
-               width= '100%'
-               ></iframe>
-            </Container>
+            {movie && (
+                <Container>
+                    <iframe
+                        src={`https://www.youtube.com/embed/${movie[0].key}`}
+                        title='Youtube Video Player'
+                        height='500px'
+                        width='100%'
+                    ></iframe>
+                </Container>
             )}
         </Background>
     )

@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 
 function Slider({ info, title }) {
 
-    console.log(info, title)
+   
     return (
         <Container>
             <h2>{title}</h2>

@@ -3,7 +3,7 @@ import Home from '../containers/Home'
 import Movies from '../containers/Home/Movies'
 import Series from '../containers/Home/Series'
 import DefaultLayout from '../layout/DefaultLayout'
-import Detail from '../containers/Detalhe'
+import Detail from '../containers/Detail'
 
 
 function Router(){
