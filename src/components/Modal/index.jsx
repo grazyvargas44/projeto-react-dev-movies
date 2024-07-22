@@ -18,7 +18,7 @@ function Modal({ movieId, setShowModal }) {
 
     return (
         <Background onClick={() => setShowModal(false)}>
-            {movie && (
+            {movie && movie.length > 0 && (
                 <Container>
                     <iframe
                         src={`https://www.youtube.com/embed/${movie[0].key}`}

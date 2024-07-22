@@ -69,3 +69,12 @@ export async function getMovieById(movieId) {
 
      return data
 }
+
+export async function getNowPlaying() {
+  const {
+    data: { results }
+  } = await api.get('/movie/now_playing')
+  console.log(results)
+  return results
+  
+}
